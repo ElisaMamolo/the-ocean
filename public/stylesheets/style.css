@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,4 +8,14 @@ a {
 
 h1 {
   color: 15px;
+}
+
+.navlogo {
+  width: 200px;
+}
+
+/*login error div*/
+.errorDiv {
+  background-color: blue !important;
+  border: none !important;
 }
