@@ -1,5 +1,4 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url("https://image.freepik.com/free-vector/pixel-art-scene-underwater-adventure_150088-169.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -25,6 +24,22 @@ h1 {
   border: none !important;
 }
 
+.createForm {
+  height: 50vh;
+}
+
 .footerLink {
   text-decoration: none;
+}
+
+p {
+  font-size: 8px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.cardTitle {
+  font-size: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.cardNFT {
+  width: 200px;
 }
