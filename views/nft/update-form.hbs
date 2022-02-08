@@ -1,0 +1,36 @@
+<h2>Update the NFT {{nft.name}}</h2>
+
+<form action="/nft/nfts/{{nft._id}}/edit" method="post">
+  <label>
+    NFT Name:
+    <input type="text" name="name" value="{{nft.name}}" />
+  </label>
+  
+  <label>
+    Image:
+    <input type="text" name="image" value="{{nft.image}}" />
+  </label>
+  
+  <select id = "owner" name = "owner">  
+    {{#each users}}
+      <option>{{_id}}</option>  
+    {{/each}}
+  </select>  
+
+  <label>
+    Creator:
+    <input type="text" name="creator" value="{{nft.name}}" />
+  </label>
+
+  <label>
+    Price:
+    <input
+      type="number"
+      name="price"
+      min="0"
+      value="{{nft.price}}"
+    />
+  </label>
+ 
+  <button type="submit"> Submit Changes </button>
+</form>
