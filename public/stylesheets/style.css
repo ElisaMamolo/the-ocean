@@ -1,5 +1,10 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("https://image.freepik.com/free-vector/pixel-art-scene-underwater-adventure_150088-169.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 100vh;
 }
 
 a {
@@ -18,4 +23,8 @@ h1 {
 .errorDiv {
   background-color: blue !important;
   border: none !important;
+}
+
+.footerLink {
+  text-decoration: none;
 }
