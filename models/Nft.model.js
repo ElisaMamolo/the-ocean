@@ -7,7 +7,7 @@ const nftSchema = new Schema(
       type: String,
       // unique: true -> Ideally, should be unique, but its up to you
     },
-    image: String,
+    image: String, //default: 'images/default-avatar.png'
     owner: { type: Schema.Types.ObjectId, ref: "User" },
     creator: String,
     price: Number,
