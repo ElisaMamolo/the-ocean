@@ -18,7 +18,7 @@
 </head>
 
 <body>
-   <nav class="navbar navbar-lgt bg-lgt justify-content-between">
+   <nav class="navbar navbar-lgt bg-dark justify-content-between">
       <ul class="nav justify-content-start ml-5">
          <a class="navbar-brand" href="/">
             <img src="/images/TheOcean-removebg-preview.png" class="navlogo" alt="the ocean logo">
@@ -26,16 +26,34 @@
          </li>
       </ul>
       <ul class="nav justify-content-end">
+         {{#if userInSession }}
+         <li class="nav-item">
+            <a class="nav-link" href="/auth/details">Profile</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/auth/logout">Logout</a>
+         </li>
+         {{else}}
          <li class="nav-item">
             <a class="nav-link" href="/auth/login">Login</a>
          </li>
          <li class="nav-item">
             <a class="nav-link" href="/auth/signup">Signup</a>
          </li>
+         {{/if}}
       </ul>
    </nav>
 
    {{{body}}}
+   <section class="vh-10 gradient-custom bg-dark fixed-bottom">
+      <footer class="text-lg-start">
+         <div class="row d-flex justify-content-center align-items-center text-center">
+            <a class="text-light footerLink" href="">TheOcean.com</a>
+            <a class="text-light footerLink" href="">theocean@sea.com</a>
+            <a class="text-light footerLink" href="">Jobs</a>
+         </div>
+      </footer>
+   </section>
 
    <script src="/js/script.js"></script>
 </body>
