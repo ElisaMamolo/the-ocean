@@ -13,6 +13,7 @@ const User = require("../models/User.model");
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
+const isAdmin = require("../middleware/isAdmin");
 
 router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
@@ -63,6 +64,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         return User.create({
           username,
           password: hashedPassword,
+          shells: 0,
         });
       })
       .then((user) => {
@@ -130,6 +132,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
         return res.redirect("/");
+        //return res.redirect("/", { userInSession: req.session.currentUser });
       });
     })
 
@@ -149,7 +152,22 @@ router.get("/logout", isLoggedIn, (req, res) => {
         .render("auth/logout", { errorMessage: err.message });
     }
     res.redirect("/");
+    //res.redirect("/", { userInSession: req.session.currentUser });
   });
+});
+
+//show user details
+router.get("/details", isLoggedIn, (req, res, next) => {
+  const username = req.session.user.username;
+  User.findOne({ username })
+    .then((user) => {
+      return res.render("auth/user-detail", { userInSession: user });
+    })
+    .catch((err) => {
+      // in this case we are sending the error handling to the error handling middleware that is defined in the error handling file
+      // you can just as easily run the res.status that is commented out below
+      next(err);
+    });
 });
 
 module.exports = router;
