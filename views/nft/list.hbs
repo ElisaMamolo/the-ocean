@@ -1,23 +1,31 @@
-<h2>NFTs</h2>
+<div class="text-center">
+  <h2>NFTs</h2>
+  <a class="nav-link" href="/nft/create">Add new NFT</a>
+</div>
 
-<a class="nav-link" href="/nft/create">Add new NFT</a>
 
-</div><div class="col-md-4">
-  <div class="card">
+<div class="container">
+  <div class="row">
     {{#each nfts}}
-      <div>
-        <h3>{{name}}</h3>
-        <img class="card-img-top" src={{image}} alt="NFT" />
-        <div class="card-body"></div>
-        <p>Price: {{price}} SeaShells</p>
-        <p>Creator: {{creator}}</p>
-        <p>Owner: {{owner}}</p>
-        <a href="/nft/nfts/{{_id}}/edit">Edit</a>
-        <form action="/nft/nfts/{{_id}}/delete" 
-        method="POST">
-          <button>Delete</button>
-        </form>
+    <div class="col-md-2 mb-4">
+      <div class="card text-white bg-dark cardNFT">
+        <!--dynamic image to be commented out
+          <img class="card-img-top" src={{image}} alt="NFT" />-->
+        <img class="card-img-top" src="/images/fish.PNG" alt="NFT" />
+        <div class="card-body">
+          <h5 class="cardTitle">{{name}}</h5>
+          <p>Price: {{price}} SeaShells</p>
+          <p>Creator: {{creator}}</p>
+          <p>Owner: {{owner}}</p>
+          <div class="d-flex justify-content-around mb-2">
+            <a href="/nft/nfts/{{_id}}/edit" class="btn btn-primary"> Edit </a>
+            <form action="/nft/nfts/{{_id}}/delete" method="POST">
+              <button class="btn btn-primary">Delete</button>
+            </form>
+          </div>
+        </div>
       </div>
+    </div>
     {{/each}}
   </div>
 </div>
