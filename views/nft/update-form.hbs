@@ -1,36 +1,40 @@
-<h2>Update the NFT {{nft.name}}</h2>
+<section class="createForm">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-1">
+              <h2 class="fw-bold mb-2 text-uppercase">Update the NFT {{nft.name}}</h2>
+              <form action="/nft/nfts/{{nft._id}}/edit" method="post">
+                <div class="form-outline form-white mb-4">
+                  <label class="form-label">NFT Name:</label>
+                  <input type="text" name="name" value="{{nft.name}}" class="form-control form-control-lg" />
 
-<form action="/nft/nfts/{{nft._id}}/edit" method="post">
-  <label>
-    NFT Name:
-    <input type="text" name="name" value="{{nft.name}}" />
-  </label>
-  
-  <label>
-    Image:
-    <input type="text" name="image" value="{{nft.image}}" />
-  </label>
-  
-  <select id = "owner" name = "owner">  
-    {{#each users}}
-      <option>{{_id}}</option>  
-    {{/each}}
-  </select>  
+                  <label class="form-label">Image</label>
+                  <input type="text" name="image" value="{{nft.image}}" class="form-control form-control-lg" />
 
-  <label>
-    Creator:
-    <input type="text" name="creator" value="{{nft.name}}" />
-  </label>
+                  <label class="form-label">Creator</label>
+                  <input type="text" name="creator" value="{{nft.name}}" class="form-control form-control-lg" />
 
-  <label>
-    Price:
-    <input
-      type="number"
-      name="price"
-      min="0"
-      value="{{nft.price}}"
-    />
-  </label>
- 
-  <button type="submit"> Submit Changes </button>
-</form>
+                  <label class="form-label">Owner</label>
+                  <br>
+                  <select id="owner" name="owner" class="form-select">
+                    {{#each users}}
+                    <option>{{_id}}</option>
+                    {{/each}}
+                  </select>
+                  <br>
+                  <label class="form-label">Price</label>
+                  <input type="number" name="price" min="0" value="{{nft.price}}"
+                    class="form-control form-control-lg" />
+                </div>
+                <button class="btn btn-outline-light btn-lg " type="submit">Create</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

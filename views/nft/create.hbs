@@ -1,28 +1,39 @@
+<section class="createForm">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-1">
+              <h2 class="fw-bold mb-2 text-uppercase">Create a NFT</h2>
+              <form action="/nft/create" method="post">
+                <div class="form-outline form-white mb-4">
+                  <label class="form-label">NFT Name:</label>
+                  <input type="text" name="name" class="form-control form-control-lg" />
 
-<h2>Create a NFT</h2>
-<a class="nav-link" href="/">Back/cancel</a>
-<form action="/nft/create" method="post">
-  <label> NFT Name:
-    <input type="text" name="name" />
-  </label>
+                  <label class="form-label">Image</label>
+                  <input type="text" name="image" class="form-control form-control-lg" />
 
-  <label> Image:
-    <input type="text" name="image" />
-  </label>
+                  <label class="form-label">Creator</label>
+                  <input type="text" name="creator" class="form-control form-control-lg" />
 
-  <select id = "owner" name = "owner">  
-    {{#each users}}
-      <option>{{_id}}</option>  
-    {{/each}}
-  </select>  
-
-  <label> Creator:
-    <input type="text" name="creator" />
-  </label>
-
-  <label> Price:
-    <input type="number" name="price" min="0" />
-  </label>
-
-  <button type="submit"> Create </button>
-</form>
+                  <label class="form-label">Owner</label>
+                  <br>
+                  <select id="owner" name="owner" class="form-select">
+                    {{#each users}}
+                    <option>{{_id}}</option>
+                    {{/each}}
+                  </select>
+                  <br>
+                  <label class="form-label">Price</label>
+                  <input type="number" name="price" min="0" class="form-control form-control-lg" />
+                </div>
+                <button class="btn btn-outline-light btn-lg " type="submit">Create</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
