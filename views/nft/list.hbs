@@ -9,11 +9,11 @@
     {{#each nfts}}
     <div class="col-md-2 mb-4">
       <div class="card text-white bg-dark cardNFT">
-        <!--dynamic image to be commented out
-          <img class="card-img-top" src={{image}} alt="NFT" />-->
-        <img class="card-img-top" src="/images/fish.PNG" alt="NFT" />
+        
+        {{!-- <img class="card-img-top" src="/images/fish.PNG" alt="NFT" /> --}}
         <div class="card-body">
           <h5 class="cardTitle">{{name}}</h5>
+          <img class="card-img-top" src={{image}} alt="NFT" />
           <p>Price: {{price}} SeaShells</p>
           <p>Creator: {{creator}}</p>
           <p>Owner: {{owner}}</p>
@@ -21,6 +21,9 @@
             <a href="/nft/nfts/{{_id}}/edit" class="btn btn-primary"> Edit </a>
             <form action="/nft/nfts/{{_id}}/delete" method="POST">
               <button class="btn btn-primary">Delete</button>
+            </form>
+            <form action="/nft/nfts/{{_id}}/buy" method="POST">
+              <button class="btn btn-primary">BUY</button>
             </form>
           </div>
         </div>

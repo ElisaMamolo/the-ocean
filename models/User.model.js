@@ -5,16 +5,16 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
+      required: true,
+      unique: true
     },
     password: String,
-    role: ["User", "Admin"],
+    role: {type: String, enum: ["User", "Admin"] },
     shells: Number,
     asset: [{ type: Schema.Types.ObjectId, ref: "Nft" }],
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
-    timestamps: true,
+     timestamps: true,
   }
 );
 
