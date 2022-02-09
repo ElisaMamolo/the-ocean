@@ -29,6 +29,7 @@ router.post("/create", (req, res, next) => {
   const { name, image, owner, creator, price } = req.body;
 
   Nft.create({ name, image, owner, creator, price })
+  //! Add the NFT to owners portfolio under asset field
     .then(() => res.redirect("/nft/nfts"))
     .catch((error) => next(error));
 });
@@ -36,7 +37,7 @@ router.post("/create", (req, res, next) => {
 router.get("/nfts/:nftId/edit", (req, res, next) => {
   
   const { nftId } = req.params;
-
+  //! If new owner then remove asset from previous owner to new owner
   Nft.findById(nftId)
     .then((nftToEdit) => {
       User.find()
@@ -67,6 +68,28 @@ router.post("/nfts/:nftId/delete", (req, res, next) => {
   Nft.findByIdAndDelete(nftId)
     .then(() => res.redirect("/nft/nfts"))
     .catch((error) => next(error));
+});
+
+router.post("/nfts/:nftId/buy", (req, res, next) => {
+
+  //! Can the user afford the NFT
+  //! Deduct amount from account/userModel
+  //! Remove NFT from owner
+  //! Add seashells to the seller
+  //! Add NFT to user asset array
+  //! Change Owner on NFT
+   
+   const { nftId } = req.params;
+
+   Nft.findById(nftId)
+   .then((nftToEdit) => {
+    User.findById(nftToEdit.owner)
+    .then((nftOwner) => { 
+    console.log(nftOwner.username);
+    })
+  });
+   console.log(req.params);
+   
 });
 
 module.exports = router;
