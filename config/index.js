@@ -65,7 +65,6 @@ module.exports = (app) => {
   //used to handle session user and handle content depending on it
   app.use(function (req, res, next) {
     res.locals.session = req.session;
-    console.log(session.user);
     next();
   });
 };
