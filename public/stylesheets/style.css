@@ -1,8 +1,5 @@
 body {
-  background-image: url("https://image.freepik.com/free-vector/pixel-art-scene-underwater-adventure_150088-169.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-color: #c2e9f2;
   height: 100vh;
 }
 
@@ -40,6 +37,6 @@ p {
   font-size: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.cardNFT {
-  width: 200px;
+.nav {
+  padding-left: 20px;
 }
