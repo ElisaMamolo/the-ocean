@@ -14,6 +14,42 @@
                             <!--here i can add the card with the asset-->
                             <div class="form-outline form-white mb-4">
                                 <label class="form-label">Asset:</label> <br>
+                                <div class="container">
+                                    <div class="row">
+                                        {{#each nfts}}
+                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-5">
+                                            <div class="card  bg-light card h-100 v-100">
+
+                                                {{!-- <img class="card-img-top" src="/images/fish.PNG" alt="NFT" /> --}}
+                                                <div class="card-body">
+                                                    <h5 class="cardTitle text-center mb-3">{{name}}</h5>
+                                                    <img class="card-img-top mb-3" src="{{image}}" alt="NFT" />
+                                                    <p>Price: {{price}} SeaShells</p>
+                                                    <p>Creator: {{creator}}</p>
+                                                    <p>Owner: {{owner}}</p>
+                                                    <div class="d-flex justify-content-around mb-2">
+
+                                                        {{#if session.user}}
+                                                        <form action="/nft/nfts/{{_id}}/buy" method="POST">
+                                                            <button class="btn btn-primary">BUY</button>
+                                                        </form>
+                                                        {{#if session.user.isAdmin}}
+                                                        <form action="/nft/nfts/{{_id}}/delete" method="POST">
+                                                            <button class="btn btn-primary">Delete</button>
+                                                        </form>
+                                                        <a href="/nft/nfts/{{_id}}/edit" class="btn btn-primary"> Edit
+                                                        </a>
+                                                        {{/if}}
+                                                        {{else}}
+                                                        <button class="btn btn-primary" disabled>BUY</button>
+                                                        {{/if}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
