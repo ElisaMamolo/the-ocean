@@ -1,1 +1,33 @@
 <h1>{{title}}</h1>
+<div class="text-center">
+  <form action="/nft/create" method="GET">
+              <button class="btn btn-success">Add new NFT</button>
+  </form>
+</div>
+
+<div class="container">
+  <div class="row">
+    {{#each nfts}}
+    <div class="col-md-2 mb-4">
+      <div class="card text-white bg-dark cardNFT">
+        <div class="card-body">
+          <h5 class="cardTitle">{{name}}</h5>
+          <img class="card-img-top" src={{image}} alt="NFT" />
+          <p>Price: {{price}} <img src="/images/seashell.PNG" alt="SeaShell" height="18px"></p>
+          <p>Creator: {{creator}}</p>
+          <p>Owner: {{owner}}</p>
+          <div class="d-flex justify-content-around mb-2">
+            <a href="/nft/nfts/{{_id}}/edit" class="btn btn-primary"> Edit </a>
+            <form action="/nft/nfts/{{_id}}/delete" method="POST">
+              <button class="btn btn-primary">Delete</button>
+            </form>
+            <form action="/nft/nfts/{{_id}}/buy" method="POST">
+              <button class="btn btn-primary">BUY</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
