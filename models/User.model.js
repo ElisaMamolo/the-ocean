@@ -6,15 +6,15 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
     password: String,
-    role: {type: String, enum: ["User", "Admin"] },
+    isAdmin: { type: Boolean, default: false },
     shells: Number,
     asset: [{ type: Schema.Types.ObjectId, ref: "Nft" }],
   },
   {
-     timestamps: true,
+    timestamps: true,
   }
 );
 
