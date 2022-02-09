@@ -7,13 +7,13 @@
 <div class="container">
   <div class="row">
     {{#each nfts}}
-    <div class="col-md-2 mb-4">
-      <div class="card text-white bg-dark cardNFT">
-        
+    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-5">
+      <div class="card text-white bg-dark card h-100">
+
         {{!-- <img class="card-img-top" src="/images/fish.PNG" alt="NFT" /> --}}
         <div class="card-body">
           <h5 class="cardTitle">{{name}}</h5>
-          <img class="card-img-top" src={{image}} alt="NFT" />
+          <img class="card-img-top" src="/images/fish.PNG" alt="NFT" />
           <p>Price: {{price}} SeaShells</p>
           <p>Creator: {{creator}}</p>
           <p>Owner: {{owner}}</p>
