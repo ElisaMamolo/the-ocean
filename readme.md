@@ -11,6 +11,54 @@ Before starting developing we have defined a initial structure of our pages and 
 
 #### User Stories
 
+- As a user visiting The Ocean I would like to view all the NFTs
+
+- As a user visiting The Ocean I would like to see NFT attributes
+
+- Picture
+
+- Price
+
+- Name
+
+- Owner
+
+- Creator
+
+- As a user visiting The Ocean I would like to be able to Signup
+
+- As a user visiting The Ocean I would like to be able to Login
+
+- As a user visiting The Ocean I would like to be able to see my profile details
+
+- Account: How many SeaShells I own
+
+- Account: Which NFTs I already own (if any)
+
+- Username/Email
+
+- As a user visiting The Ocean I would like to be able to purchase an NFT
+
+- As a user visiting The Ocean I would like to accumulate SeaShells
+
+- Signing up, logging in regularly etc.
+
+- As an Admin user I would like to be able to add NFTs
+
+- As an Admin user I would like to be able to delete NFTs
+
+- As an Admin user I would like to be able to edit NFT attributes
+
+- Picture
+
+- Price
+
+- Name
+
+- Owner
+
+- Creator
+
 #### Setup(Optional)
 
 #### Technologies Used
