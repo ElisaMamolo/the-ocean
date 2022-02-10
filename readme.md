@@ -35,7 +35,7 @@ Before starting developing we have defined a initial structure of our pages and 
 
 #### Technologies Used
 
-:computer:\
+:computer:
 
 - Express
 - MongoDB & Mongoose
