@@ -1,8 +1,7 @@
 ### The Ocean
 
 #### Description of the project
-
-![Screenshot](Capture.PNG)
+This is an NFT marketplace, users can create an account and start buying NFTs with our token called SeaShell. We have tried to replicate the functionality and the concept of "Open Sea" with a learning purpose. 
 
 #### Wireframes
 
@@ -41,6 +40,8 @@ Before starting developing we have defined a initial structure of our pages and 
 - MongoDB & Mongoose
 - MongoDB Atlas - db deployment
 - Heroku - app deployment
+- Bootstrap
+- Handlebars
 
 #### Models
 
@@ -71,11 +72,11 @@ Properties:\
 
 #### Server routes table(Method, Route or URL, Description as columns)
 
-| route | user | nft | description |
-| ----- | ---- | --- | ----------- |
-|       |      |     |             |
-|       |      |     |             |
-|       |      |     |             |
+| route | description |
+| ----- | ----------  |
+|       |             |             
+|       |             |             
+|       |             |             
 
 #### Demo(Optional) (Screenshots or GIFs of the application)
 
@@ -94,8 +95,9 @@ https://the-ocean-shop.herokuapp.com/
 
 #### Resources
 
-- Bootstrap
+- Bootstrap templates for divs and cards structure
 - Bored Ape Images and Open Sea concept have been used in the app.
+- Ironlauncher npm package - for generating the structure of the project and for handling authorization
 
 #### Team members
 
