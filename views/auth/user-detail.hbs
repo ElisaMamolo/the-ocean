@@ -22,8 +22,6 @@
                                         {{#each nfts}}
                                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-5">
                                             <div class="card  bg-light card h-100 v-100">
-
-                                                {{!-- <img class="card-img-top" src="/images/fish.PNG" alt="NFT" /> --}}
                                                 <div class="card-body">
                                                     <h5 class="cardTitle text-center mb-3">{{name}}</h5>
                                                     <img class="card-img-top mb-3" src="{{image}}" alt="NFT" />
@@ -31,7 +29,6 @@
                                                     <p>Creator: {{creator}}</p>
                                                     <p>Owner: {{owner}}</p>
                                                     <div class="d-flex justify-content-around mb-2">
-
                                                         {{#if session.user}}
                                                         <form action="/nft/nfts/{{_id}}/buy" method="POST">
                                                             <button class="btn btn-primary">BUY</button>
