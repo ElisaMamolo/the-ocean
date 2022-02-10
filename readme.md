@@ -73,21 +73,20 @@ Properties:\
 
 #### Server routes table(Method, Route or URL, Description as columns)
 
-table
-
-| route | description |
-| ---auth--- | --------------------------------------------------------------------------------------------------------------------------------|
-| /signup | get and post for showing the form and to signup |
-| /login | get and post for showing the form and to login |
-| /logout | logout and redirect to homepage |
-| /details | get user details and show its asset, render auth/user-detail |
-| ---nft--- |-------------------------------------------------------------------------------------------------------------------------------- |
-| /create | get and post for creating a new nft redirect to nft/create and index |
-| /nfts/:nftId/edit | get nft by id and edit it with post |  
-| /nfts/:nftId/delete | post to delete an nft by id |
-| /nfts/:nftId/buy | post, validate if can afford and if token is not alrady of the user, then change owner and subtract token from buyer and seller |
-| ---index--- |-------------------------------------------------------------------------------------------------------------------------------- |
-| / | get all the nfts and render index |
+|     | route               | description                                                                                                                      |     |
+| --- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --- |
+|     | ---auth---          | -------------------------------------------------------------------------------------------------------------------------------- |     |
+|     | /signup             | get and post for showing the form and to signup                                                                                  |     |
+|     | /login              | get and post for showing the form and to login                                                                                   |     |
+|     | /logout             | logout and redirect to homepage                                                                                                  |     |
+|     | /details            | get user details and show its asset, render auth/user-detail                                                                     |     |
+|     | ---nft---           | -------------------------------------------------------------------------------------------------------------------------------- |     |
+|     | /create             | get and post for creating a new nft redirect to nft/create and index                                                             |     |
+|     | /nfts/:nftId/edit   | get nft by id and edit it with post                                                                                              |     |
+|     | /nfts/:nftId/delete | post to delete an nft by id                                                                                                      |     |
+|     | /nfts/:nftId/buy    | post, validate if can afford and if token is not alrady of the user, then change owner and subtract token from buyer and seller  |     |
+|     | ---index---         | -------------------------------------------------------------------------------------------------------------------------------- |     |
+|     | /                   | get all the nfts and render index                                                                                                |     |
 
 #### Demo(Optional) (Screenshots or GIFs of the application)
 
