@@ -121,6 +121,7 @@ router.post("/nfts/:nftId/buy", (req, res, next) => {
           intro: "It's yours!",
           message: "You already own this item",
         };
+        return res.redirect("/");
       } else {
         //Purchase process approved
 
