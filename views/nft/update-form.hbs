@@ -15,7 +15,7 @@
                   <input type="text" name="image" value="{{nft.image}}" class="form-control form-control-lg" />
 
                   <label class="form-label">Creator</label>
-                  <input type="text" name="creator" value="{{nft.name}}" class="form-control form-control-lg" />
+                  <input type="text" name="creator" value="{{nft.creator}}" class="form-control form-control-lg" />
 
                   <label class="form-label">Owner</label>
                   <br>
@@ -29,7 +29,11 @@
                   <input type="number" name="price" min="0" value="{{nft.price}}"
                     class="form-control form-control-lg" />
                 </div>
-                <button class="btn btn-outline-light btn-lg " type="submit">Create</button>
+                <button class="btn btn-outline-light btn-lg " type="submit">Submit</button>
+                
+              </form>
+              <form action="/" method="GET">
+                  <button class="btn btn-outline-light btn-lg btn-danger">Cancel</button>
               </form>
             </div>
           </div>

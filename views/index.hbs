@@ -23,13 +23,12 @@
               <button class="btn btn-primary">Delete</button>
             </form>
             <a href="/nft/nfts/{{_id}}/edit" class="btn btn-primary"> Edit </a>
-
-
             {{else if ../session.user}}
-            <button class="btn btn-primary">BUY</button>
-
-            {{else}}
             <form action="/nft/nfts/{{_id}}/buy" method="POST">
+              <button class="btn btn-primary">BUY</button>
+            </form>
+            {{else}}
+             <form action="/nft/nfts/{{_id}}/buy" method="POST">
               <button class="btn btn-primary" disabled>BUY</button>
             </form>
             {{/if}}
