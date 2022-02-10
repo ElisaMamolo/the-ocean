@@ -17,6 +17,10 @@ Before starting developing we have defined a initial structure of our pages and 
 
 #### Models
 
+We have 2 types of users, admin and normal users.\
+Admin can create, edit and delete nfts\
+User can buy nfts
+
 ##### User Model
 
 Pregenerated with ironlauncher and enhanced\
@@ -30,7 +34,8 @@ Properties:
 
 ##### Nft Model
 
-- Properties:
+Properties:\
+
 - name, { type: String },
 - image: String,
 - owner: { type: Schema.Types.ObjectId, ref: "User" },
