@@ -33,9 +33,14 @@ Before starting developing we have defined a initial structure of our pages and 
 
 - As an Admin user I would like to be able to edit NFT attributes
 
-#### Setup(Optional)
-
 #### Technologies Used
+
+:computer:\
+
+- Express
+- MongoDB & Mongoose
+- MongoDB Atlas - db deployment
+- Heroku - app deployment
 
 #### Models
 
@@ -80,6 +85,21 @@ https://the-ocean-shop.herokuapp.com/
 
 #### Future Work
 
+:wrench:
+
+- We would like to finish implementing the functionality of rewarding login. So if the user logs in for multiple days in a row, earns some extra SeaShells (our currency).
+- We would like to add some styling to the cards to make them even more responsive. When uploading pictures of different sizes the cards size changes.
+
+:wrench:
+
 #### Resources
 
+- Bootstrap
+- Bored Ape Images and Open Sea concept have been used in the app.
+
 #### Team members
+
+Christian\
+Elisa
+
+#### This is a learning project, if anything needs to be removed please reach out and it will be removed right away.
