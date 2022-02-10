@@ -47,7 +47,11 @@ h1 {
   font-size: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/*user profile div */
+/*user profile & cards index div */
 .profileDiv {
   margin-top: 100px;
+}
+
+.indexContainer {
+  margin-top: 100px !important;
 }
