@@ -44,6 +44,12 @@ Properties:\
 
 #### Server routes table(Method, Route or URL, Description as columns)
 
+| route | user | nft | description |
+| ----- | ---- | --- | ----------- |
+|       |      |     |             |
+|       |      |     |             |
+|       |      |     |             |
+
 #### Demo(Optional) (Screenshots or GIFs of the application)
 
 #### Project Link
