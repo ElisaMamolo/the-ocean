@@ -6,7 +6,7 @@
 </div>
 
 
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     {{#each nfts}}
     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-5">
@@ -28,12 +28,10 @@
               <button class="btn btn-primary">BUY</button>
             </form>
             {{else}}
-             <form action="/nft/nfts/{{_id}}/buy" method="POST">
+            <form action="/nft/nfts/{{_id}}/buy" method="POST">
               <button class="btn btn-primary" disabled>BUY</button>
             </form>
             {{/if}}
-
-
           </div>
         </div>
       </div>

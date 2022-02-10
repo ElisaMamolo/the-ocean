@@ -3,40 +3,51 @@ body {
   height: 100vh;
 }
 
+/*/////////////////////////////////////links*/
 a {
   color: #00b7ff;
+}
+
+/*/ ////////////////////////////////////fonts*/
+p {
+  font-size: 8px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 h1 {
   color: 15px;
 }
 
+/*/ //////////////////////////////navbar & footer*/
+.nav {
+  padding-left: 20px;
+}
+
 .navlogo {
   width: 200px;
-}
-
-/*login error div*/
-.errorDiv {
-  background-color: blue !important;
-  border: none !important;
-}
-
-.createForm {
-  height: 50vh;
 }
 
 .footerLink {
   text-decoration: none;
 }
 
-p {
-  font-size: 8px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*/ /////////////////////////////////////Forms & divs*/
+
+/*login/signup error div*/
+.errorDiv {
+  background-color: blue !important;
+  border: none !important;
+}
+
+/*create nft form*/
+.createForm {
+  height: 50vh;
 }
 
 .cardTitle {
   font-size: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.nav {
-  padding-left: 20px;
+/*user profile div */
+.profileDiv {
+  margin-top: 100px;
 }
