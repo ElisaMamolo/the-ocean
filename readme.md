@@ -73,6 +73,8 @@ Properties:\
 
 #### Server routes table(Method, Route or URL, Description as columns)
 
+table
+
 | route | description |
 | ---auth--- | --------------------------------------------------------------------------------------------------------------------------------|
 | /signup | get and post for showing the form and to signup |
