@@ -1,6 +1,6 @@
-<section class="gradient-custom">
-    <div class="container mt-5">
-        <div class="row d-flex justify-content-center align-items-center">
+<section>
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center profileDiv">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div class="card bg-dark text-white" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
@@ -14,48 +14,46 @@
                             <form action="/" method="GET">
                                 <button class="btn btn-outline-light btn-lg btn-dark">Back</button>
                             </form>
-                            <!--here i can add the card with the asset-->
-                            <div class="form-outline form-white mb-4">
-                                <label class="form-label">Asset:</label> <br>
-                                <div class="container">
-                                    <div class="row">
-                                        {{#each nfts}}
-                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-5">
-                                            <div class="card  bg-light card h-100 v-100">
-                                                <div class="card-body">
-                                                    <h5 class="cardTitle text-center mb-3">{{name}}</h5>
-                                                    <img class="card-img-top mb-3" src="{{image}}" alt="NFT" />
-                                                    <p>Price: {{price}} SeaShells</p>
-                                                    <p>Creator: {{creator}}</p>
-                                                    <p>Owner: {{owner}}</p>
-                                                    <div class="d-flex justify-content-around mb-2">
-                                                        {{#if session.user}}
-                                                        <form action="/nft/nfts/{{_id}}/buy" method="POST">
-                                                            <button class="btn btn-primary">BUY</button>
-                                                        </form>
-                                                        {{#if session.user.isAdmin}}
-                                                        <form action="/nft/nfts/{{_id}}/delete" method="POST">
-                                                            <button class="btn btn-primary">Delete</button>
-                                                        </form>
-                                                        <a href="/nft/nfts/{{_id}}/edit" class="btn btn-primary"> Edit
-                                                        </a>
-                                                        {{/if}}
-                                                        {{else}}
-                                                        <button class="btn btn-primary" disabled>BUY</button>
-                                                        {{/if}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{/each}}
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="form-outline form-white mt-5">
+        <h4 class="form-label text-center">Asset:</h4> <br>
+        <div class="container">
+            <div class="row">
+                {{#each nfts}}
+                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-5">
+                    <div class="card  bg-light card h-100 v-100">
+                        <div class="card-body">
+                            <h5 class="cardTitle text-center mb-3">{{name}}</h5>
+                            <img class="card-img-top mb-3" src="{{image}}" alt="NFT" />
+                            <p>Price: {{price}} SeaShells</p>
+                            <p>Creator: {{creator}}</p>
+                            <p>Owner: {{owner}}</p>
+                            <div class="d-flex justify-content-around mb-2">
+                                {{#if ../session.user}}
+                                <form action="/nft/nfts/{{_id}}/buy" method="POST">
+                                    <button class="btn btn-primary">BUY</button>
+                                </form>
+                                {{#if ../session.user.isAdmin}}
+                                <form action="/nft/nfts/{{_id}}/delete" method="POST">
+                                    <button class="btn btn-primary">Delete</button>
+                                </form>
+                                <a href="/nft/nfts/{{_id}}/edit" class="btn btn-primary"> Edit
+                                </a>
+                                {{/if}}
+                                {{else}}
+                                <button class="btn btn-primary" disabled>BUY</button>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
     </div>
 </section>
