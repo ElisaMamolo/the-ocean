@@ -19,7 +19,7 @@ Before starting developing we have defined a initial structure of our pages and 
 
 ##### User Model
 
-Pregenerated with ironlauncher and enhanced
+Pregenerated with ironlauncher and enhanced\
 Properties:
 
 - username: { type: String, required: true, unique: true,},
