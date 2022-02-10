@@ -28,6 +28,8 @@ const MongoStore = require("connect-mongo");
 // Connects the mongo uri to maintain the same naming structure
 const MONGO_URI = require("../utils/consts");
 
+const flash = require("express-flash-notification");
+
 // Middleware configuration
 module.exports = (app) => {
   // In development environment the app logs
@@ -65,6 +67,14 @@ module.exports = (app) => {
   //used to handle session user and handle content depending on it
   app.use(function (req, res, next) {
     res.locals.session = req.session;
+    next();
+  });
+
+  app.use(flash(app));
+
+  app.use((req, res, next) => {
+    res.locals.message = req.session.message;
+    delete req.session.message;
     next();
   });
 };
