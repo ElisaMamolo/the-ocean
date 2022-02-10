@@ -7,8 +7,9 @@ const mongoose = require("mongoose");
 // How many rounds should bcrypt run the salt (default [10 - 12 rounds])
 const saltRounds = 10;
 
-// Require the User model in order to interact with the database
+// Require the User and NFT model in order to interact with the database
 const User = require("../models/User.model");
+const Nft = require("../models/Nft.model.js");
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -154,18 +155,23 @@ router.get("/logout", isLoggedIn, (req, res) => {
   });
 });
 
-//show user details
+//show user details and asset
 router.get("/details", isLoggedIn, (req, res, next) => {
   const username = req.session.user.username;
-  User.findOne({ username })
-    .then((user) => {
-      return res.render("auth/user-detail", { userInSession: user });
-    })
-    .catch((err) => {
-      // in this case we are sending the error handling to the error handling middleware that is defined in the error handling file
-      // you can just as easily run the res.status that is commented out below
-      next(err);
-    });
+  //get user and pass its details to the view
+  User.findOne({ username }).then((user) => {
+    //get nfts by id from asset id in the user
+    let ids = user.asset;
+    Nft.find()
+      .where("_id")
+      .in(ids)
+      .exec((err, records) => {
+        res.render("auth/user-detail", {
+          nfts: records,
+          userInSession: user,
+        });
+      });
+  });
 });
 
 module.exports = router;
