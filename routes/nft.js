@@ -4,6 +4,7 @@ const router = express.Router();
 const Nft = require("../models/Nft.model.js");
 const User = require("../models/User.model.js");
 
+
 router.get("/create", (req, res, next) => {
   User.find()
     .then((allTheUsersFromDB) => {
@@ -13,6 +14,7 @@ router.get("/create", (req, res, next) => {
       next(error);
     });
 });
+
 
 router.post("/create", (req, res, next) => {
   const { name, image, owner, creator, price } = req.body;
@@ -25,6 +27,7 @@ router.post("/create", (req, res, next) => {
     .then(() => res.redirect("/"))
     .catch((error) => next(error));
 });
+
 
 router.get("/nfts/:nftId/edit", (req, res, next) => {
   const { nftId } = req.params;
@@ -42,28 +45,6 @@ router.get("/nfts/:nftId/edit", (req, res, next) => {
 });
 
 
-//Backup
-// router.post("/nfts/:nftId/edit", (req, res, next) => {
-//   const { nftId } = req.params;
-//   const { name, image, owner, creator, price } = req.body;
-
-//   //! Did owner change
-//   //! if so: remove asset from previous owner
-//   //! Add asset to new owner
-
-//   //! Nft.FindById --> Compare the two owner values.
-
-//   Nft.findByIdAndUpdate(
-//     nftId,
-//     { name, image, owner, creator, price },
-//     { new: true }
-//   )
-//     .then((updatedNft) => res.redirect("/"))
-//     .catch((error) => next(error));
-// });
-
-
-
 router.post("/nfts/:nftId/edit", (req, res, next) => {
   const { nftId } = req.params;
   const { name, image, owner, creator, price } = req.body;
@@ -74,10 +55,12 @@ router.post("/nfts/:nftId/edit", (req, res, next) => {
     if (nftToEdit.owner != owner) {
       Nft.findById(nftId)
         .then((dbNft) => {
+          console.log("owner: " + owner)
          return User.findByIdAndUpdate(owner, { $push: { asset: dbNft._id } });
          })
       User.findByIdAndUpdate(nftToEdit.owner, { $pull: { asset: nftToEdit._id } }, { new: true } )
-        .then((foundUser) => {   
+        .then((foundUser) => {
+          console.log("nftToEdit.owner: " + nftToEdit.owner); 
          });
     };
     });
@@ -107,26 +90,57 @@ router.post("/nfts/:nftId/delete", (req, res, next) => {
 
 
 router.post("/nfts/:nftId/buy", (req, res, next) => {
-  //! Can the user afford the NFT (DONE)
-  //! Deduct amount from account/userModel
-  //! Remove NFT from owner
-  //! Add seashells to the seller
-  //! Add NFT to user asset array
-  //! Change Owner on NFT
 
   const { nftId } = req.params;
 
-  Nft.findById(nftId)
-  .then((nftToEdit) => {
+  Nft.findById(nftId).then((nftToEdit) => {
     User.findById(nftToEdit.owner)
-      .then((nftOwner) => {
-      if (nftOwner.shells < nftToEdit.price) {
-        //User feedback - Cannot afford NFT
-        console.log("cannot afford nft");
-        return 
+    .then((nftSeller) => {
+      if (req.session.user.shells < nftToEdit.price ) {
+        res.redirect("/", { message: "test message" });
+        //!User feedback - Cannot afford NFT
+        return;
+
+      } else if (nftToEdit.owner == req.session.user._id) {
+        //!User feedback - User already own this NFT
+        return;
+      
+      } else {  //Purchase process approved
+
+        //remove NFT from sells portfolio
+        Nft.findById(nftId)
+          .then((dbNft) => {
+            return User.findByIdAndUpdate(
+              dbNft.owner,
+              {
+                $pull: { asset: dbNft._id },
+                shells: (nftSeller.shells += nftToEdit.price),
+              },
+              { new: true }
+            );
+          })
+          .then((seller) => {});
+
+        //apply NFT to buyers portfolio
+        Nft.findById(nftId)
+          .then((dbNft) => {
+            return User.findByIdAndUpdate(req.session.user._id, {
+              $push: { asset: dbNft._id },
+              shells: (req.session.user.shells -= nftToEdit.price),
+            });
+          })
+
+        //apply new owner to NFT
+        Nft.findByIdAndUpdate(
+          nftId,
+          { owner: req.session.user._id },
+          { new: true }
+        )
+          .then((updatedNft) => res.redirect("/"))
+          .catch((error) => next(error));
       }
-    })
+    });
   });
 });
-
-module.exports = router;
+    
+  module.exports = router;
