@@ -7,7 +7,7 @@ This is an NFT marketplace, users can create an account and start buying NFTs wi
 #### Wireframes
 
 Before starting developing we have defined a initial structure of our pages and we have defined a set of MVP functionalities.
-![Wireframe landingpage](../master/public/images/landingpage.png)
+![Wireframe landingpage](https://raw.github.com/ElisaMamolo/the-ocean/master/public/images/landingpage.png)
 
 #### User Stories
 
