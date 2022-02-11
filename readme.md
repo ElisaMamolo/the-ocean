@@ -7,13 +7,13 @@ This is an NFT marketplace, users can create an account and start buying NFTs wi
 #### Wireframes
 
 Before starting developing we have defined a initial structure of our pages and we have defined a set of MVP functionalities.
-![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/landingpage.PNG)
 
-![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe2.PNG)
-
-![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe3.PNG)
-
-![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe4.PNG)
+- Landing page wireframe
+  ![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/landingpage.PNG)
+- Landing page wireframe if logged in
+  ![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe2.PNG)
+- User page wireframe
+  ![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe3.PNG)
 
 #### User Stories
 
