@@ -11,9 +11,14 @@ Before starting developing we have defined a initial structure of our pages and 
 - Landing page wireframe
   ![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/landingpage.PNG)
 - Landing page wireframe if logged in
-  ![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe2.PNG)
+  ![Wireframe if logged in](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe2.PNG)
 - User page wireframe
-  ![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe3.PNG)
+  ![Wireframe user page](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe3.PNG)
+
+#### Screenshot
+
+This is the homepage
+![screenshot of the app](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe3.PNG)
 
 #### User Stories
 
