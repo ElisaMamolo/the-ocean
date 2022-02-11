@@ -18,7 +18,7 @@ Before starting developing we have defined a initial structure of our pages and 
 #### Screenshot
 
 This is the homepage
-![screenshot of the app](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/screnshot.PNG)
+![screenshot of the app](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/screnshoot.PNG)
 
 #### User Stories
 
