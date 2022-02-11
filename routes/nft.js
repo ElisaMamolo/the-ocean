@@ -4,6 +4,7 @@ const router = express.Router();
 const Nft = require("../models/Nft.model.js");
 const User = require("../models/User.model.js");
 
+//Create NFT Route
 router.get("/create", (req, res, next) => {
   User.find()
     .then((allTheUsersFromDB) => {
@@ -26,6 +27,7 @@ router.post("/create", (req, res, next) => {
     .catch((error) => next(error));
 });
 
+//Edit NFT Route
 router.get("/nfts/:nftId/edit", (req, res, next) => {
   const { nftId } = req.params;
 
@@ -48,17 +50,18 @@ router.post("/nfts/:nftId/edit", (req, res, next) => {
   //Align user portfolios
   Nft.findById(nftId).then((nftToEdit) => {
     if (nftToEdit.owner != owner) {
-      Nft.findById(nftId).then((dbNft) => {
-        console.log("owner: " + owner);
-        return User.findByIdAndUpdate(owner, { $push: { asset: dbNft._id } });
-      });
+      Nft.findById(nftId)
+        .then((dbNft) => {
+          return User.findByIdAndUpdate(owner, { $push: { asset: dbNft._id } });
+        })
+        .catch((error) => next(error));
       User.findByIdAndUpdate(
         nftToEdit.owner,
         { $pull: { asset: nftToEdit._id } },
         { new: true }
-      ).then((foundUser) => {
-        console.log("nftToEdit.owner: " + nftToEdit.owner);
-      });
+      )
+        .then((foundUser) => {})
+        .catch((error) => next(error));
     }
   });
 
@@ -79,6 +82,7 @@ router.post("/nfts/:nftId/edit", (req, res, next) => {
     .catch((error) => next(error));
 });
 
+//Delete NFT Route
 router.post("/nfts/:nftId/delete", (req, res, next) => {
   const { nftId } = req.params;
 
@@ -87,7 +91,9 @@ router.post("/nfts/:nftId/delete", (req, res, next) => {
       foundNFT.owner,
       { $pull: { asset: foundNFT._id } },
       { new: true }
-    ).then((foundUser) => {});
+    )
+      .then((foundUser) => {})
+      .catch((error) => next(error));
   });
   Nft.findByIdAndDelete(nftId)
     .then(() => {
@@ -101,6 +107,7 @@ router.post("/nfts/:nftId/delete", (req, res, next) => {
     .catch((error) => next(error));
 });
 
+//Buy NFT Route
 router.post("/nfts/:nftId/buy", (req, res, next) => {
   const { nftId } = req.params;
 
@@ -137,15 +144,18 @@ router.post("/nfts/:nftId/buy", (req, res, next) => {
               { new: true }
             );
           })
-          .then((seller) => {});
+          .then((seller) => {})
+          .catch((error) => next(error));
 
         //apply NFT to buyers portfolio
-        Nft.findById(nftId).then((dbNft) => {
-          return User.findByIdAndUpdate(req.session.user._id, {
-            $push: { asset: dbNft._id },
-            shells: (req.session.user.shells -= nftToEdit.price),
-          });
-        });
+        Nft.findById(nftId)
+          .then((dbNft) => {
+            return User.findByIdAndUpdate(req.session.user._id, {
+              $push: { asset: dbNft._id },
+              shells: (req.session.user.shells -= nftToEdit.price),
+            });
+          })
+          .catch((error) => next(error));
 
         //apply new owner to NFT
         Nft.findByIdAndUpdate(
