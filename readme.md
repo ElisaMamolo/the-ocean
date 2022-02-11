@@ -4,6 +4,10 @@
 
 This is an NFT marketplace, users can create an account and start buying NFTs with our token called SeaShell. We have tried to replicate the functionality and the concept of "Open Sea" with a learning purpose.
 
+#### Screenshot
+
+![screenshot of the app](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/screnshoot.PNG)
+
 #### Wireframes
 
 Before starting developing we have defined a initial structure of our pages and we have defined a set of MVP functionalities.
@@ -14,11 +18,6 @@ Before starting developing we have defined a initial structure of our pages and 
   ![Wireframe if logged in](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe2.PNG)
 - User page wireframe
   ![Wireframe user page](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe3.PNG)
-
-#### Screenshot
-
-This is the homepage
-![screenshot of the app](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/screnshoot.PNG)
 
 #### User Stories
 
